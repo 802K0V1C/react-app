@@ -2,6 +2,8 @@ import styles from './ColumnForm.module.scss';
 import { useState } from 'react';
 import Button from '../Button/Button';
 import { useDispatch } from 'react-redux';
+import { addColumn } from '../../redux/store';
+import shortid from 'shortid';
 
 
 const ColumnForm = (props) => {
@@ -14,7 +16,7 @@ const dispatch = useDispatch();
 const handleSubmit = (e) => {
     // tworzy funkcję, która będzie wywoływana po kliknięciu w przycisk
     e.preventDefault(); // zapobiega przeładowaniu strony po kliknięciu w przycisk
-    dispatch({ type: 'ADD_COLUMN', newColumn: { title, icon } });// wywołuje funkcję przekazaną w propsach, która dodaje nową kolumnę do tablicy kolumn w App.js
+    dispatch(addColumn({ id: shortid(), title, icon }))
     setValue(''); // czyści pole input po dodaniu nowej kolumny
     setIcon('');
 };
