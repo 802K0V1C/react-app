@@ -1,0 +1,1 @@
+export const strContains = (str, searchStr) => str.toLowerCase().includes(searchStr.toLowerCase());
