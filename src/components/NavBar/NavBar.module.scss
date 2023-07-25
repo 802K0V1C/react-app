@@ -1,0 +1,32 @@
+nav{
+    background-color:#6c5ce7;
+
+}
+
+.navContainer {
+padding: 20px;
+}
+
+.navWrapper {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.navIcon {
+font-size: 35px;
+a {
+    color: #fff;
+}
+}
+
+.navList ul li {
+    list-style-type: none;
+a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 10px;
+    font-weight: 800;
+}
+}
