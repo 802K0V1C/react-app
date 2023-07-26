@@ -30,9 +30,10 @@ a {
     font-size: 18px;
     padding: 0 10px;
     font-weight: 800;
+
+    &.linkActive {
+        color: $color-warning;
+        }
 }
 }
 
-.linkActive {
-    color: $color-warning;
-    }
