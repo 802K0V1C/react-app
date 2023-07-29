@@ -26,6 +26,19 @@ const initialState = {
     { id: 6, columnId: 3, title: 'Skyrim' }
     ],
 
+    lists: [
+        {
+        id: 1,
+        title: 'Things to do...',
+        description: 'Interesting things I want to check out'
+        },
+    {
+        id: 2,
+        title: 'Test list',
+        description: 'Lorem Ipsum'
+    }
+    ],
+
     searchString: '',
 
 };
