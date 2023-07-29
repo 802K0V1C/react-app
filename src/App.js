@@ -14,7 +14,7 @@ const App = () => {
   <Container>
   <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/list/:ListId" element={<List />} />
+      <Route path="/list/:listId" element={<List />} />
       <Route path="/about" element={<About />} />
       <Route path="/favorite" element={<Favorite />} />
       <Route path="*" element={<NotFound/>}/>
