@@ -12,6 +12,8 @@ export const getListById = ({ lists }, listId) => lists.find(list => list.id ===
 
 export const getColumnsByList = ({ columns }, listId) => columns.filter(column => column.listId === listId);
 
+export const getAllLists = ({ lists }) => lists;
+
 //action creators
 export const addColumn = newColumn => ({ type: 'ADD_COLUMN', newColumn });
 
