@@ -16,7 +16,7 @@ const dispatch = useDispatch();
 const handleSubmit = (e) => {
     // tworzy funkcję, która będzie wywoływana po kliknięciu w przycisk
     e.preventDefault(); // zapobiega przeładowaniu strony po kliknięciu w przycisk
-    dispatch(addColumn({ id: shortid(), title, icon }))
+    dispatch(addColumn({ id: shortid(), title, icon, listId: props.listId }));
     setValue(''); // czyści pole input po dodaniu nowej kolumny
     setIcon('');
 };

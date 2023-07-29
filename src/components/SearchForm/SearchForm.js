@@ -14,6 +14,9 @@ import { searchUpdate } from '../../redux/store';
         e.preventDefault();
         dispatch(searchUpdate( searchString ));
         setSearchString('');
+
+        dispatch(searchUpdate(''));
+
         };
     return (
         <form className={styles.searchForm} onSubmit={handleSubmit}>

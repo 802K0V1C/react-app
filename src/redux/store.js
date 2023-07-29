@@ -21,6 +21,8 @@ export const addCard = newCard => ({ type: 'ADD_CARD', newCard});
 
 export const searchUpdate = updateSearchString => ({ type: 'SEARCH_UPDATE', updateSearchString});
 
+export const addList = newList => ({ type: 'ADD_LIST', newList});
+
 const reducer = (state, action) => {
 switch (action.type) {
     case 'ADD_COLUMN':
@@ -29,6 +31,8 @@ switch (action.type) {
     return { ...state, cards: [...state.cards, action.newCard]}; 
     case 'SEARCH_UPDATE':
     return { ...state, searchString: action.updateSearchString};
+    case 'ADD_LIST':
+    return { ...state, lists: [...state.lists, action.newList]};
     default:
     return state;
 }
