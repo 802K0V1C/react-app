@@ -1,6 +1,10 @@
-import { legacy_createStore as createStore } from 'redux';
+import { createStore, combineReducers} from 'redux';
 import initialState from './initialState';
 import { strContains } from '../components/utils/strContains';
+import listsReducer from './listsRedux'
+import columnsReducer from './columnsRedux'
+import cardsReducer from './cardsRedux';
+import searchStringReducer from './searchStringRedux';
 
 //selectors
 export const getFilteredCards = ({ cards, searchString }, columnId) => cards.filter((card) => card.columnId === columnId && strContains(card.title, searchString));
@@ -26,56 +30,15 @@ export const addCard = newCard => ({ type: 'ADD_CARD', newCard});
 
 export const toggleCardFavorite = (payload) => ({ type: 'TOGGLE_CARD_FAVORITE', payload });
 
-const reducer = (state, action) => {
-    const newState = {
-        lists: listsReducer(state.lists, action),
-        columns: columnsReducer(state.columns, action),
-        cards: cardsReducer(state.cards, action),
-        searchString: searchStringReducer(state.searchString, action)
-    };
-    
-    return newState;
-    };
-    
-    const listsReducer = (statePart = [], action) => {
-    switch(action.type) {
-        case 'ADD_LIST':
-        return [...statePart, { ...action.newList }];
-        default:
-        return statePart;
-    }
-    }
-    
-    const columnsReducer = (statePart = [], action) => {
-    switch(action.type) {
-    case 'ADD_COLUMN':
-        return [...statePart, { ...action.newColumn }];
-        default:
-        return statePart;
-    }
-    }
-    
-    const cardsReducer = (statePart = [], action) => {
-    switch(action.type) {
-    case 'ADD_CARD':
-    return [...statePart, { ...action.newCard }];
-    case 'ADD_LIST':
-        return [...statePart, { ...action.newCard }];
-    case 'TOGGLE_CARD_FAVORITE':
-        return statePart.map(card => (card.id === action.payload) ? { ...card, isFavorite: !card.isFavorite } : card);
-    default: 
-    return statePart;
-}
-};
 
-const searchStringReducer = (statePart = '', action) => {
-switch(action.type) {
-    case 'SEARCH_UPDATE':
-    return action.updateSearchString
-    default:
-    return statePart;
+const subreducers = {
+lists: listsReducer,
+columns: columnsReducer,
+cards: cardsReducer,
+searchString: searchStringReducer
 }
-}
+
+const reducer = combineReducers(subreducers);
 
 const store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
