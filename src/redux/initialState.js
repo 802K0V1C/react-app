@@ -14,22 +14,25 @@ const initialState = {
     ],
 
     columns: [
-    {
-        id: '1',
-        title: 'Books',
-        icon: 'book',
-    },
-    {
-        id: '2',
-        title: 'Movies',
-        icon: 'film',
-    },
-    {
-        id: '3',
-        title: 'Games',
-        icon: 'gamepad',
-    }
-    ],
+        {
+            id: '1',
+            title: 'Books',
+            icon: 'book',
+            listId: '1'
+        },
+        {
+            id: '2',
+            title: 'Movies',
+            icon: 'film',
+            listId: '1'
+        },
+        {
+            id: '3',
+            title: 'Games',
+            icon: 'gamepad',
+            listId: '1'
+        }
+        ],
 
     cards: [
         { id: '1', columnId: '1', title: 'This is Going to Hurt', isFavorite: false },
