@@ -1,7 +1,7 @@
-const createActionName = actionName => `app/search/${actionName}`;
+const createActionName = actionName => `app/lists/${actionName}`;
 const SEARCH_UPDATE = createActionName('SEARCH_UPDATE');
 
-export const searchUpdate = (updateSearchString) => ({ type: 'SEARCH_UPDATE', updateSearchString });
+export const searchUpdate = (updateSearchString) => ({ type: SEARCH_UPDATE, updateSearchString });
 
 const searchStringReducer = (statePart = '', action) => {
     switch (action.type) {
